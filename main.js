@@ -13,5 +13,4 @@ document.addEventListener("DOMContentLoaded", e => {
       ScrollReveal().reveal(sub, { distance: `${50 + i * 15}px`, delay: 300 + 170 * (i ** 1.4 + 1), duration: 1750 });
     }
   }
-  window.setTimeout(() => window.scrollTo(0, 0), 500);
 })
