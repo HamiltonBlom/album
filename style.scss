@@ -18,6 +18,8 @@ body {
   width: 100vw;
 }
 .fancy-title {
+  margin: 0;
+  height: 0;
   display: flex;
   flex-direction: column;
   font-size: clamp(2rem, 10vw, 6rem);
