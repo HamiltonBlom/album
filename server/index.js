@@ -3,10 +3,21 @@ const fileUpload = require("express-fileupload");
 const app = express();
 const bodyParser = require("body-parser");
 const fs = require("fs").promises;
+const cors = require("cors");
+const path = require("path");
+const child_process = require("child_process");
 
-// default options
 app.use(fileUpload());
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
+const child = child_process.exec("npx vite");
+
+console.log("app listening on: http://localhost:3000")
+
+app.use("/uploads/", express.static(__dirname + "/uploads"))
+
 app.post("/upload", function (req, res) {
   let sampleFile;
   let uploadPath;
@@ -33,8 +44,14 @@ app.post("/upload", function (req, res) {
     db.push(data);
     await fs.writeFile(__dirname + "/database.json", JSON.stringify(db));
 
-    res.send("ye!");
+    res.send("uploaded!");
   });
+});
+
+app.get("/uploads", (req, res) => {
+
+  res.sendFile(path.resolve(__dirname, "./database.json"));
+
 });
 
 app.listen(4000, console.log);
