@@ -59,14 +59,13 @@ body {
 }
 
 .start-box-cont {
-    $width: Min(30vw, 29rem);
-    width: $width;
-    height: $width;
+    width: Min(30vw, 29rem);
+    height: Min(30vw, 29rem);
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(
-        Min(Calc(#{$width} * -0.2), Calc(-50% + #{$width})),
+        Min(Calc(Min(30vw, 29rem) * -0.2), Calc(-50% + Min(30vw, 29rem))),
         -50%
     ) scale(1.6);
     z-index: 2;
@@ -94,7 +93,19 @@ body {
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url("https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.technocrazed.com%2Fwp-content%2Fuploads%2F2015%2F12%2FHD-Space-Wallpaper-For-Background-22.jpg&f=1&nofb=1")
+      background-image: url(/img3.jpg)
+    }
+}
+@media screen and (max-width: 1300px) {
+    .home {
+        justify-content: center;
+        align-items: center;
+        .start-box-cont {
+            position: static;
+            align-self: flex-end;
+            width: Min(45vw);
+            height: Min(20vw);
+        }
     }
 }
 
@@ -107,7 +118,7 @@ body {
     button {
         position: relative;
         text-decoration: none;
-        background: none;
+        background: rgb(87, 75, 75);
         border: 0.1em solid #fff;
         color: #fff;
         transition: all 0.2s;
@@ -283,6 +294,9 @@ nav {
           text-align: center;
           transform: translateY(100%);
         }
+        @media screen and (max-width: 1050px) {
+            margin: 4vw;
+        }
     }
     :link {
         text-decoration: none;
@@ -291,7 +305,7 @@ nav {
         text-decoration: none;
     }
     .box2 {
-      background-repeat: no-repeat;
+        background-repeat: no-repeat;
         text-decoration: none;
         display: flex;
         align-items: center;
@@ -301,14 +315,15 @@ nav {
         height: 350px;
         background-size: contain;
         background-position: center;
+        @media screen and (max-width: 1050px) {
+            width: 35vw;
+            height: 30vh;
+        }
     }
-    .item {
+    .add {
         color: white;
         font-weight: 500;
         font-size: 50px;
-    }
-    .box3 {
-
     }
 }
 #albumpage {

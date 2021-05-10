@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-const child = child_process.exec("npx vite");
+//const child = child_process.exec("npx vite");
 
 console.log("app listening on: http://localhost:3000")
 
@@ -44,7 +44,7 @@ app.post("/upload", function (req, res) {
     db.push(data);
     await fs.writeFile(__dirname + "/database.json", JSON.stringify(db));
 
-    res.send("uploaded!");
+    res.redirect(301, "http://localhost:3000/album.html");
   });
 });
 
