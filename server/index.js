@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-//const child = child_process.exec("npx vite");
+const child = child_process.exec("npx vite");
 
 console.log("app listening on: http://localhost:3000")
 
